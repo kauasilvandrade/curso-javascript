@@ -16,17 +16,31 @@
     <h1>Iniciando estudos com DOM</h1>
     <p>Aqui vai o resultado</p>
     <p>Aprendendo a usar <strong>DOM</strong> em JavaScript</p>
-    <div name="msg">
+    <div class="msg">
         Clique em mim
     </div>
     <script>
         let corpo = window.document.body
-        let p1 = window.document.getElementsByTagName('p')[1]
+<<<<<<< HEAD
+        let p1 = window.document.querySelectorAll('p')[1]        /*let d = document.getElementById('msg')
+=======
+        let paragrafos = window.document.querySelectorAll('p')
+        
+        paragrafos.forEach(function(p) {
+            p.style.color = 'red'
+            p.style.textDecoration = 'underline'
+        })
+
         /*let d = document.getElementById('msg')
+>>>>>>> 5c099d91c7ebe57767cd0571fb8a96d2825db44c
         d.style.backgroundColor = 'green'
         d.innerText = d.innerText +' /// Estou aguardando...'*/
-        let d = window.getElementsByTagName('msg')[0]
-        d.innerText = 'Olá'
+
+        let d = window.document.querySelector('div.msg')
+        d.innerText = 'Testando...' 
+        d.style.color = 'red'
+
+        p1.style.color = 'green'
     </script>
 </body>
 </html>
