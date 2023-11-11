@@ -21,7 +21,13 @@
     </div>
     <script>
         let corpo = window.document.body
-        let p1 = window.document.getElementsByTagName('p')[1]
+        let paragrafos = window.document.querySelectorAll('p')
+        
+        paragrafos.forEach(function(p) {
+            p.style.color = 'red'
+            p.style.textDecoration = 'underline'
+        })
+
         /*let d = document.getElementById('msg')
         d.style.backgroundColor = 'green'
         d.innerText = d.innerText +' /// Estou aguardando...'*/
