@@ -1,23 +1,18 @@
-function carregar() {
-    let msg = document.getElementById('msg');
-    let img = document.getElementById('imagem');
-    let data = new Date()
-    let hora = data.getHours()
+function contar() {
 
-    msg.innerHTML = `Agora são ${hora} horas.`
-
-    if (hora >= 0 && hora < 12) {
-        // BOM DIA
-        img.src = "img/manha.png"
-        document.body.style.background = "#e2cd9f"
-    } else if (hora >= 12 && hora <= 18) {
-        // BOA TARDE
-        img.src = "img/tarde.png"
-        document.body.style.background = "#b9846f"
-    } else {
-        // BOA NOITE
-        img.src = "img/noite.png"
-        document.body.style.background = "#515154"
+    let inicio = document.getElementById('inicio').value;
+    let fim = document.getElementById('fim').value;
+    let passo = document.getElementById('passo').value;
+    
+    let resultado = document.getElementById('resultado');
+    resultado.innerHTML = `Contando... <br>`;
+    
+    for (let i = inicio; i <= fim; i = ++passo) {
+        let span = document.createElement('span');
+        span.innerHTML = `👉${i} `
+        resultado.appendChild(span)
     }
+    
+    resultado.innerText += '🏁'
 
 }
