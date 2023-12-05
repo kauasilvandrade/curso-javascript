@@ -17,8 +17,13 @@ section {
 }
 
 div {
-    text-align: center;
-    padding: 10px;
+    padding: 10px 0px;
+}
+
+button {
+    margin: 1rem 0 ;
+    padding: 0.5rem;
+    cursor: pointer;
 }
 
 footer {
