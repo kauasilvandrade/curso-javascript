@@ -14,5 +14,8 @@ function contar() {
     }
     
     resultado.innerText += '🏁'
+    console.log(inicio)
+    console.log(fim)
+    console.log(passo)
 
 }
