@@ -1,43 +1,39 @@
 function contar() {
 
-    let inicio = document.getElementById('inicio').value;
-    let fim = document.getElementById('fim').value;
-    let passo = document.getElementById('passo').value;
-    
-    if (inicio.length == 0) {
-        resultado.innerHTML = `Impossível contar!`;
+    let ini = document.getElementById('txti')
+    let fim = document.getElementById('txtf')
+    let passo = document.getElementById('txtp')
+    let res = document.getElementById('resultado')
+
+    if (ini.value.length == 0 || fim.value.length == 0 || passo.value.length == 0) {
+        res.innerHTML = 'Impossivel contar!'
     } else {
+        res.innerHTML = `Contando: <br>`
 
-        let resultado = document.getElementById('resultado');
-        resultado.innerHTML = `Contando... <br>`;
-        
-        for (let i = Number(inicio); i <= Number(fim); i = i + Number(passo)) {
-    
-            if (passo.length == 0) {
-                alert('Passo inválido! Considerando PASSO 1')
-                
-                for (let i = Number(inicio); i <= Number(fim); i++) { 
+        let i = Number(ini.value)
+        let f = Number(fim.value)
+        let p = Number(passo.value)
 
-                    let span = document.createElement('span');
-                    span.innerHTML = `👉${i} `;
-                    resultado.appendChild(span);
-
-                }
-
-                break;
-
-            } else {
-    
-                let span = document.createElement('span');
-                span.innerHTML = `👉${i} `;
-                resultado.appendChild(span);
-    
-            }
+        if (p <= 0) {
+            window.alert('Passo inválido! Considerando PASSO 1')
+            p = 1
         }
-    
-        resultado.innerText += '🏁'
-        
+
+        if (i > f) {
+
+            for (let c = i; c >= f ; c -= p) {
+                res.innerHTML += ` ${c} \u{1f449}`
+            }
+
+        } else {
+
+            for (let c = i; c <= f; c += p) {
+                res.innerHTML += ` ${c} \u{1f449}`
+            }
+
+        }
+
+        res.innerHTML += `\u{1F3C1}`
     }
 
-    
 }

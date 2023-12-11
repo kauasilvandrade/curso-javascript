@@ -15,21 +15,14 @@
     <section>
 
         <div>
-            <label for="inicio">Início: </label>
-            <input type="number" name="inicio" id="inicio">
-        </div>
 
-        <div>
-            <label for="fim">Fim: </label>
-            <input type="number" name="fim" id="fim">
-        </div>
+            <p>Início: <input type="number" name="inicio" id="txti"></p>
+            <p>Fim: <input type="number" name="fim" id="txtf"></p>
+            <p>Passo: <input type="number" name="passo" id="txtp"></p>
 
-        <div>
-            <label for="passo">Passo: </label>
-            <input type="number" name="passo" id="passo">
+
+            <p><input type="button" value="Contar" onclick="contar()"></p>
         </div>
-        
-        <button onclick="contar()">Contar</button>
 
         <div id="resultado">
             

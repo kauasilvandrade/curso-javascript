@@ -4,7 +4,8 @@ body {
 }
 
 header {
-    
+    color: white;
+    text-align: center;
 }
 
 section {
@@ -14,24 +15,6 @@ section {
     max-width: 500px;
     margin: auto;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.343);
-}
-
-div {
-    padding: 10px 0px;
-}
-
-div:nth-child(1) label {
-    margin-right: 0.4rem;
-}
-
-div:nth-child(2) label {
-    margin-right: 1.3rem;
-}
-
-button {
-    margin: 1rem 0 ;
-    padding: 0.5rem;
-    cursor: pointer;
 }
 
 footer {
