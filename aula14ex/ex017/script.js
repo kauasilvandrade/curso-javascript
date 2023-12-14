@@ -11,8 +11,11 @@ function gerarTabuada() {
     } else {
 
         for (let i = 0; i <= 10; i++) {
-            let resTabuada = n * i;
-            tabuada.innerHTML += `${n} x ${i} = ${resTabuada}<br>`
+            let option = document.createElement('option')
+
+            option.text = `${n} x ${i} = ${n*i}`
+            option.value = `tab${i}`
+            tabuada.appendChild(option)
         }
 
     }
