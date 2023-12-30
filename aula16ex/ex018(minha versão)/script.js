@@ -1,6 +1,28 @@
+
+// VALORES QUE O USUÁRIO DIGITOU
 let numerosUsuario = [];
 let select = document.getElementById('select');
 let checagem = document.getElementById('checagemLista');
+
+// ANALISAR SE O NÚMERO JÁ ESTÁ NA LISTA
+function inVetor(n, v) {
+    
+    if (v.indexOf(n) != -1) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
+// ANALISAR SE O NÚMERO QUE O USUÁRIO DIGITOU É UM NÚMERO
+function isNumero(n) {
+    if (n >= 1 && n <= 100) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 // ADICIONAR NÚMERO AO SELECT
 function adicionarNumero() {
@@ -8,38 +30,27 @@ function adicionarNumero() {
     // PEGAR ENTRADA DO USUÁRIO
     let inputNumero = document.getElementById('numero');
     let numero = Number(inputNumero.value);
-    
-    // ANALISAR SE O NÚMERO ESTÁ NA LISTA
-    let estaNaLista = analisarNumeroVetor(numero)
-    
-    if (numero < 1 || numero > 100 || estaNaLista == true) {
-        
-        window.alert('Valor invalido ou já encontrado na lista.')
-        
-    } else {
 
+    // SE FOR UM NÚMERO E NÃO ESTIVER NA LISTA
+    if (isNumero(numero) && !inVetor(numero, numerosUsuario)) {
+        // ADICIONAR AO VETOR
+        numerosUsuario.push(numero);
+        
         // CRIAR OPTION NO SELECT
         let option = document.createElement('option');
         option.innerText = `Valor ${numero} adicionado.`;
         select.appendChild(option)
 
-        // ADICIONAR AO VETOR
-        numerosUsuario.push(numero);
         checagem.innerHTML = " ";
-        inputNumero.value = " ";
+        
+    } else {
+        
+        window.alert('Valor invalido ou já encontrado na lista.')
+        
     }
-
-}
-
-// ANALISAR SE O NÚMERO JÁ ESTÁ NA LISTA
-function analisarNumeroVetor(numero) {
-
-    for (let i = 0; i < numerosUsuario.length; i++) {
-        if (numero == numerosUsuario[i]) {
-            return true;
-        }
-    }
-
+    
+    inputNumero.value = "";
+    inputNumero.focus()
 }
 
 // MOSTRAR CHECAGEM DE LISTA
@@ -50,31 +61,31 @@ function checagemLista() {
     } else {
         
         let totalCadastrados = numerosUsuario.length
-        let maiorValor = 0;
+        let maiorValor = numerosUsuario[0]
+        let menorValor = numerosUsuario[0]
         let soma = 0;
-        let menorValor = null
     
-        for (let i = 0; i < numerosUsuario.length; i++) {
-    
-            if (numerosUsuario[i] > maiorValor) {
-                maiorValor =  numerosUsuario[i]
+        for (let pos in numerosUsuario) {
+            
+            if (numerosUsuario[pos] > maiorValor) {
+                maiorValor = numerosUsuario[pos]
             }
-    
-            if (menorValor == null || menorValor > numerosUsuario[i]) {
-                menorValor = numerosUsuario[i]
+
+            if (numerosUsuario[pos] < menorValor) {
+                menorValor = numerosUsuario[pos]
             }
-    
-            soma += numerosUsuario[i]
-    
+
+            soma += numerosUsuario[pos]
         }
-    
-        let media = soma / numerosUsuario.length
-    
-        checagem.innerHTML = `<br>Ao todo, temos ${totalCadastrados} números cadastrados.<br>`
-        checagem.innerHTML += `<br>O maior valor informado foi ${maiorValor}.<br>`
-        checagem.innerHTML += `<br>O menor valor informado foi ${menorValor}.<br>`
-        checagem.innerHTML += `<br>Somando todos os valores, temos ${soma}.<br>`
-        checagem.innerHTML += `<br>A média dos valores digitados é ${media.toFixed(2)}.<br>`
+     
+        let media = soma / totalCadastrados
+        
+        checagem.innerHTML = " "
+        checagem.innerHTML += `<p>Ao todo, temos ${totalCadastrados} números cadastrados.</p>`;
+        checagem.innerHTML += `<p>O maior valor informado foi ${maiorValor}.</p>`;
+        checagem.innerHTML += `<p>O menor valor informado foi ${menorValor}.</p>`;
+        checagem.innerHTML += `<p>Somando todos os valores, temos ${soma}.</p>`;
+        checagem.innerHTML += `<p>A média dos valores digitados é ${media.toFixed(2)}.</p>`;
 
     }
     

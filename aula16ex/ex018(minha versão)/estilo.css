@@ -18,7 +18,7 @@ section {
 }
 
 p {
-    display: inline;
+    display: inline-block;
 }
 
 button, input {
